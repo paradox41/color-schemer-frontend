@@ -29,7 +29,7 @@ export default class App extends React.Component {
     };
   }
 
-  handleToggle() {
+  toggle() {
     this.setState({
       open: !this.state.open
     });
@@ -50,6 +50,9 @@ export default class App extends React.Component {
       leftNav:{
         zIndex: 1000,
         paddingTop: '75px'
+      },
+      body: {
+        paddingLeft: '265px'
       }
     };
   }
@@ -61,7 +64,7 @@ export default class App extends React.Component {
       <div style={styles.app}>
         <AppBar
           title="Color Schemer"
-          onLeftIconButtonTouchTap={this.handleToggle.bind(this)}
+          onLeftIconButtonTouchTap={this.toggle.bind(this)}
           style={styles.appBar}>
         </AppBar>
 
@@ -73,7 +76,9 @@ export default class App extends React.Component {
           </List>
         </LeftNav>
 
-        <Counter></Counter>
+        <div style={styles.body}>
+          <Counter></Counter>
+        </div>
       </div>
     );
   }
