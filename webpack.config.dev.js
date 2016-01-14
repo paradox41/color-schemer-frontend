@@ -1,6 +1,8 @@
 var path = require('path');
 var webpack = require('webpack');
 
+var ProgressBarPlugin = require('progress-bar-webpack-plugin');
+
 module.exports = {
   devtool: 'cheap-module-eval-source-map',
   entry: [
@@ -14,7 +16,8 @@ module.exports = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    new webpack.NoErrorsPlugin(),
+    new ProgressBarPlugin()
   ],
   module: {
     loaders: [{
