@@ -1,17 +1,5 @@
 {
   "presets": [
-    "react",
     "es2015"
-  ],
-  "plugins": [
-    "syntax-decorators",
-    "transform-class-properties"
-  ],
-  "env": {
-    "development": {
-      "presets": [
-        "react-hmre"
-      ]
-    }
-  }
+  ]
 }
