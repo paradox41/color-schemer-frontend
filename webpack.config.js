@@ -5,7 +5,6 @@ var webpack = require('webpack');
 // plugins
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 var BrowserSyncPlugin = require('browser-sync-webpack-plugin');
-var CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
 
 var NODE_ENV = process.env.NODE_ENV || 'development';
 var isProduction = NODE_ENV === 'production';
@@ -21,8 +20,7 @@ module.exports = {
   output: {
     path: __dirname + '/build',
     publicPath: '/',
-    filename: isProduction ? '[name].bundle.[hash].js' : '[name].bundle.js',
-    chunkFilename: isProduction ? '[id].[hash].chunk.js' : '[id].chunk.js'
+    filename: isProduction ? '[name].bundle.[hash].js' : '[name].bundle.js'
   },
   module: {
     loaders: [{
@@ -60,21 +58,9 @@ module.exports = {
         'NODE_ENV': JSON.stringify(NODE_ENV)
       }
     }),
-    new CommonsChunkPlugin({
-      name: 'vendor',
-      filename: isProduction ? '[name].bundle.[hash].js' : '[name].bundle.js',
-      minChunks: Infinity
-    }),
-    new CommonsChunkPlugin({
-      name: 'common',
-      filename: isProduction ? '[name].bundle.[hash].js' : '[name].bundle.js',
-      minChunks: 2,
-      chunks: ['app', 'vendor']
-    }),
     new CopyWebpackPlugin([{
       from: '*.{html,json}'
     }]),
-    // new webpack.optimize.DedupePlugin(),
     new BrowserSyncPlugin({
       server: {
         baseDir: ['build/'],
