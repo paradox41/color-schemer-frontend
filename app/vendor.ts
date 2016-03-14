@@ -6,3 +6,5 @@ import 'reflect-metadata';
 
 // RxJS
 import 'rxjs';
+
+import 'material-design-lite';
