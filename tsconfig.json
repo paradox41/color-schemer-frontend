@@ -1,11 +1,14 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "sourceMap": true,
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
+    "module": "commonjs",
     "moduleResolution": "node",
-    "module": "commonjs"
+    "noEmitOnError": true,
+    "noImplicitAny": true,
+    "preserveConstEnums": true,
+    "pretty": true,
+    "removeComments": true,
+    "target": "ES5"
   },
   "exclude": [
     "node_modules"

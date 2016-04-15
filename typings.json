@@ -1,7 +1,11 @@
 {
   "ambientDependencies": {
-    "chai": "registry:dt/chai#3.4.0+20160216071402",
+    "lodash": "github:DefinitelyTyped/DefinitelyTyped/lodash/lodash.d.ts#e69fe60f2d6377ea4fae539493997b098f52cad1",
+    "node": "github:DefinitelyTyped/DefinitelyTyped/node/node.d.ts#1c56e368e17bb28ca57577250624ca5bd561aa81"
+  },
+  "ambientDevDependencies": {
+    "chai": "registry:dt/chai#3.4.0+20160317120654",
     "es6-shim": "github:DefinitelyTyped/DefinitelyTyped/es6-shim/es6-shim.d.ts#4de74cb527395c13ba20b438c3a7a419ad931f1c",
-    "mocha": "registry:dt/mocha#2.2.5+20151023103246"
+    "mocha": "registry:dt/mocha#2.2.5+20160317120654"
   }
 }
