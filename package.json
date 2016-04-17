@@ -1,20 +1,20 @@
 {
-  "name": "redux-real-world-example",
+  "name": "color-schemer-frontend",
   "version": "0.0.0",
-  "description": "Redux real-world example",
+  "description": "Frontend for Color Schemer",
   "scripts": {
     "start": "node server.js",
     "lint": "eslint app/"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/reactjs/redux.git"
+    "url": "https://github.com/paradox41/color-schemer-frontend.git"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/reactjs/redux/issues"
+    "url": "https://github.com/paradox41/color-schemer-frontend/issues"
   },
-  "homepage": "http://redux.js.org",
+  "homepage": "https://github.com/paradox41/color-schemer-frontend",
   "dependencies": {
     "babel-polyfill": "^6.7.4",
     "humps": "^1.0.0",
