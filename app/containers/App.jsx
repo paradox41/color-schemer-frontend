@@ -1,76 +1,33 @@
-import React, { Component, PropTypes } from 'react';
-import { connect } from 'react-redux';
-import { browserHistory } from 'react-router';
+import React from 'react';
 
-import Explore from '../components/Explore.jsx';
-import { resetErrorMessage } from '../actions';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 
-class App extends Component {
+import Drawer from 'material-ui/Drawer';
+import MenuItem from 'material-ui/MenuItem';
+
+const darkMuiTheme = getMuiTheme(darkBaseTheme);
+
+export default class App extends React.Component {
   constructor(props) {
     super(props);
-    this.handleChange = this.handleChange.bind(this);
-    this.handleDismissClick = this.handleDismissClick.bind(this);
-  }
 
-  handleDismissClick(e) {
-    this.props.resetErrorMessage();
-    e.preventDefault();
-  }
-
-  handleChange(nextValue) {
-    browserHistory.push(`/${nextValue}`);
-  }
-
-  renderErrorMessage() {
-    const { errorMessage } = this.props;
-
-    if (!errorMessage) {
-      return null;
-    }
-
-    return (
-      <p style={{ backgroundColor: '#e99', padding: 10 }}>
-        <b>{errorMessage}</b>
-        {' '}
-        (<a href="#"
-            onClick={this.handleDismissClick}>
-          Dismiss
-        </a>)
-      </p>
-    );
+    this.state = {
+      open: true
+    };
   }
 
   render() {
-    const { children, inputValue } = this.props;
-
     return (
-      <div>
-        <Explore value={inputValue}
-                 onChange={this.handleChange} />
-        <hr />
-        {this.renderErrorMessage()}
-        {children}
-      </div>
+      <MuiThemeProvider muiTheme={darkMuiTheme}>
+        <div>
+          <Drawer open={this.state.open}>
+            <MenuItem>Menu Item</MenuItem>
+            <MenuItem>Menu Item 2</MenuItem>
+          </Drawer>
+        </div>
+      </MuiThemeProvider>
     );
   }
 }
-
-App.propTypes = {
-  // Injected by React Redux
-  errorMessage: PropTypes.string,
-  resetErrorMessage: PropTypes.func.isRequired,
-  inputValue: PropTypes.string.isRequired,
-  // Injected by React Router
-  children: PropTypes.node
-};
-
-function mapStateToProps(state, ownProps) {
-  return {
-    errorMessage: state.errorMessage,
-    inputValue: ownProps.location.pathname.substring(1)
-  };
-}
-
-export default connect(mapStateToProps, {
-  resetErrorMessage
-})(App);
