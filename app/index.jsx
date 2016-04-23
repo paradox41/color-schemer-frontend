@@ -1,9 +1,9 @@
-import React from 'react';
+// import React from 'react';
 import { render } from 'react-dom';
 
-import App from './containers/App.jsx';
+import Routes from './routes.jsx';
 
 render(
-  <App />,
+  Routes,
   document.getElementById('root')
 );
