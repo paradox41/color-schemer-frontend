@@ -7,19 +7,7 @@ import IconButton from 'material-ui/IconButton';
 import Subheader from 'material-ui/Subheader';
 import StarBorder from 'material-ui/svg-icons/toggle/star-border';
 
-const styles = {
-  root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'space-around'
-  },
-  gridList: {
-    width: 500,
-    height: 500,
-    overflowY: 'auto',
-    marginBottom: 24
-  }
-};
+import styles from './themes.css';
 
 export default class Themes extends React.Component {
   constructor(props) {
@@ -37,9 +25,11 @@ export default class Themes extends React.Component {
   fetchThemes() {
     const url = 'http://dev.color-schemer.com/api/themes/';
 
-    fetch(url, {
-      mode: 'cors'
-    }).then((themes) => {
+    fetch(url).then((response) => {
+      return response.json();
+    }).then(({ objects }) => {
+      const themes = objects;
+
       this.setState({
         themes
       });
@@ -53,18 +43,15 @@ export default class Themes extends React.Component {
       <div style={styles.root}>
         <GridList cellHeight={200} style={styles.gridList}>
           <Subheader>December</Subheader>
-          <GridList cellHeight={200} style={styles.gridList}>
-            <Subheader>December</Subheader>
-            {this.state.themes.map((theme) => (
-              <GridTile
-                key={theme.image_url}
-                title={theme.name}
-                subtitle={<span>by <b>{theme.author}</b></span>}
-                actionIcon={<IconButton><StarBorder color="white" /></IconButton>}>
-                <img src={theme.image_url} />
-              </GridTile>
-            ))}
-          </GridList>
+          {this.state.themes.map((theme) => (
+            <GridTile
+              key={theme.image_url}
+              title={theme.name}
+              subtitle={<span>by <b>{theme.author}</b></span>}
+              actionIcon={<IconButton><StarBorder color="white" /></IconButton>}>
+              <img src={theme.image_url} />
+            </GridTile>
+          ))}
         </GridList>
       </div>
     );
