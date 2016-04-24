@@ -4,11 +4,13 @@ import { Link } from 'react-router';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
-import { spacing, typography, zIndex } from 'material-ui/styles';
+import { spacing, typography } from 'material-ui/styles';
 import { cyan500 } from 'material-ui/styles/colors';
 
 import Drawer from 'material-ui/Drawer';
-import MenuItem from 'material-ui/MenuItem';
+import { List, ListItem } from 'material-ui/List';
+
+import './app.css';
 
 const darkMuiTheme = getMuiTheme(darkBaseTheme);
 
@@ -42,12 +44,21 @@ export default class App extends React.Component {
             <div style={this.styles.logo}>
               Color Schemer
             </div>
-            <MenuItem>
-              <Link to="/themes">Themes</Link>
-            </MenuItem>
-            <MenuItem>
-              <Link to="/editor">Editor</Link>
-            </MenuItem>
+            <List>
+              <ListItem primaryText="Themes" initiallyOpen={true} primaryTogglesNestedList={true}
+                nestedItems={[
+                  <ListItem key={1}>
+                    <Link to="/themes/create">Add</Link>
+                  </ListItem>,
+                  <ListItem key={2}>
+                    <Link to="/themes">View</Link>
+                  </ListItem>
+                ]}>
+              </ListItem>
+              <ListItem>
+                <Link to="/editor">Editor</Link>
+              </ListItem>
+            </List>
           </Drawer>
           <div className="container">
             {this.props.children}
