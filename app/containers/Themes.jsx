@@ -19,22 +19,20 @@ export default class Themes extends React.Component {
   }
 
   componentDidMount() {
-    this.fetchThemes();
+    this.fetchThemes().then((themes) => {
+      this.setState({
+        themes
+      });
+    });
   }
 
   fetchThemes() {
     const url = 'http://dev.color-schemer.com/api/themes/';
 
-    fetch(url).then((response) => {
+    return fetch(url).then((response) => {
       return response.json();
     }).then(({ objects }) => {
-      const themes = objects;
-
-      this.setState({
-        themes
-      });
-    }).catch((err) => {
-      throw err;
+      return objects;
     });
   }
 
