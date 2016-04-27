@@ -1,14 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router';
+import injectTapEventPlugin from 'react-tap-event-plugin';
 
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import { spacing, typography } from 'material-ui/styles';
-import { cyan500 } from 'material-ui/styles/colors';
+import { teal600 } from 'material-ui/styles/colors';
+import Create from 'material-ui/svg-icons/content/create';
+import ViewList from 'material-ui/svg-icons/action/view-list';
+import Code from 'material-ui/svg-icons/action/code';
 
 import Drawer from 'material-ui/Drawer';
-import { List, ListItem } from 'material-ui/List';
+import Menu from 'material-ui/Menu';
+import MenuItem from 'material-ui/MenuItem';
+import Divider from 'material-ui/Divider';
+import Subheader from 'material-ui/Subheader';
+
+injectTapEventPlugin();
 
 import './app.css';
 
@@ -29,9 +38,13 @@ export default class App extends React.Component {
         color: typography.textFullWhite,
         lineHeight: `${spacing.desktopKeylineIncrement}px`,
         fontWeight: typography.fontWeightLight,
-        backgroundColor: cyan500,
+        backgroundColor: teal600,
         paddingLeft: spacing.desktopGutter,
         marginBottom: 8
+      },
+      container: {
+        padding: spacing.desktopGutter,
+        marginLeft: `${darkMuiTheme.navDrawer.width}px`
       }
     };
   }
@@ -44,23 +57,24 @@ export default class App extends React.Component {
             <div style={this.styles.logo}>
               Color Schemer
             </div>
-            <List>
-              <ListItem primaryText="Themes" initiallyOpen={true} primaryTogglesNestedList={true}
-                nestedItems={[
-                  <ListItem key={1}>
-                    <Link to="/themes/create">Add</Link>
-                  </ListItem>,
-                  <ListItem key={2}>
-                    <Link to="/themes">View</Link>
-                  </ListItem>
-                ]}>
-              </ListItem>
-              <ListItem>
-                <Link to="/editor">Editor</Link>
-              </ListItem>
-            </List>
+            <Menu>
+              <Subheader>Themes</Subheader>
+              <MenuItem
+                containerElement={<Link to="/themes/create"/>}
+                primaryText="Create"
+                leftIcon={<Create />} />
+              <MenuItem
+                containerElement={<Link to="/themes"/>}
+                primaryText="View"
+                leftIcon={<ViewList/>} />
+              <Divider/>
+              <MenuItem
+                containerElement={<Link to="/editor"/>}
+                primaryText="Editor"
+                leftIcon={<Code/>} />
+            </Menu>
           </Drawer>
-          <div className="container">
+          <div style={this.styles.container}>
             {this.props.children}
           </div>
         </div>
