@@ -7,7 +7,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var pkg = require('./package.json');
 
 module.exports = {
-  devtool: 'cheap-module-eval-source-map',
+  devtool: '',
   context: `${__dirname}/app`,
   entry: {
     index: './index.jsx',
