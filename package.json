@@ -16,10 +16,12 @@
   },
   "homepage": "https://github.com/paradox41/color-schemer-frontend",
   "dependencies": {
+    "codemirror": "^5.14.2",
     "isomorphic-fetch": "^2.2.1",
     "lodash": "^4.11.1",
     "material-ui": "^0.15.0-beta.2",
     "react": "^15.0.1",
+    "react-codemirror": "^0.2.6",
     "react-dom": "^15.0.1",
     "react-router": "^2.2.4",
     "react-tap-event-plugin": "^1.0.0"
