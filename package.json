@@ -17,6 +17,7 @@
   "homepage": "https://github.com/paradox41/color-schemer-frontend",
   "dependencies": {
     "codemirror": "^5.14.2",
+    "immutable": "^3.8.1",
     "isomorphic-fetch": "^2.2.1",
     "lodash": "^4.11.1",
     "material-ui": "^0.15.0-beta.2",

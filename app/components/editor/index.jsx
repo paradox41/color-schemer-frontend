@@ -1,4 +1,5 @@
 import React from 'react';
+import Immutable from 'immutable';
 import CodeMirror from 'react-codemirror';
 
 // languages for codemirror

@@ -63,10 +63,10 @@ export default class App extends React.Component {
                 containerElement={<Link to="/themes/create"/>}
                 primaryText="Create"
                 leftIcon={<Create />} />
-              <MenuItem
+              {/*<MenuItem
                 containerElement={<Link to="/themes"/>}
                 primaryText="View"
-                leftIcon={<ViewList/>} />
+                leftIcon={<ViewList/>} /> */}
               <Divider/>
               <MenuItem
                 containerElement={<Link to="/editor"/>}
