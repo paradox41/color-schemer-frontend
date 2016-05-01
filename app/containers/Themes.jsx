@@ -27,7 +27,7 @@ export default class Themes extends React.Component {
   }
 
   fetchThemes() {
-    const url = 'http://dev.color-schemer.com/api/themes/';
+    const url = '/api/themes/';
 
     return fetch(url).then((response) => {
       return response.json();
