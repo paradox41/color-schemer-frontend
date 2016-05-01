@@ -1,0 +1,12 @@
+.gutter {
+  background: #212121;
+  width: 30px;
+  display: inline-block;
+  text-align: right;
+  padding: 0px 5px;
+  margin-right: 10px;
+}
+
+.line-number {
+  color: #FEFEFE;
+}

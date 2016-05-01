@@ -43,8 +43,14 @@ module.exports = {
       test: /\.css$/,
       loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
     }, {
-      test: /\.json/,
+      test: /\.json$/,
       loader: 'json'
+    }, {
+      test: /\.(sublime-syntax|yaml|yml)$/,
+      loaders: ['json', 'yaml']
+    }, {
+      test: /\.txt$/,
+      loader: 'raw'
     }]
   },
   plugins: [
