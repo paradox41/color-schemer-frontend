@@ -8,18 +8,16 @@ import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import { spacing, typography } from 'material-ui/styles';
 import { teal600 } from 'material-ui/styles/colors';
 import Create from 'material-ui/svg-icons/content/create';
-import ViewList from 'material-ui/svg-icons/action/view-list';
 import Code from 'material-ui/svg-icons/action/code';
 
 import Drawer from 'material-ui/Drawer';
 import Menu from 'material-ui/Menu';
 import MenuItem from 'material-ui/MenuItem';
 import Divider from 'material-ui/Divider';
-import Subheader from 'material-ui/Subheader';
-
-injectTapEventPlugin();
 
 import './app.css';
+
+injectTapEventPlugin();
 
 const darkMuiTheme = getMuiTheme(darkBaseTheme);
 
@@ -58,7 +56,6 @@ export default class App extends React.Component {
               Color Schemer
             </div>
             <Menu>
-              <Subheader>Themes</Subheader>
               <MenuItem
                 containerElement={<Link to="/themes/create"/>}
                 primaryText="Create"
@@ -82,3 +79,7 @@ export default class App extends React.Component {
     );
   }
 }
+
+App.propTypes = {
+  children: React.PropTypes.node
+};
