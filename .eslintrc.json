@@ -5,9 +5,17 @@
     "es6": true,
     "node": true
   },
+  "settings": {
+    "import/ignore": [
+      "node_modules/",
+      ".(scss|less|css|sublime-syntax|txt)$"
+    ]
+  },
   "extends": [
     "eslint:recommended",
-    "plugin:react/recommended"
+    "plugin:react/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings"
   ],
   "parserOptions": {
     "ecmaFeatures": {
