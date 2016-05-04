@@ -1,11 +1,5 @@
 import React from 'react';
 
-import { getTokenizedLine, getContexts } from './helpers.jsx';
-
-import syntax from './JavaScript.sublime-syntax';
-
-const contexts = getContexts(syntax);
-
 export default class Line extends React.Component {
   constructor(props) {
     super(props);
@@ -16,19 +10,13 @@ export default class Line extends React.Component {
   }
 
   componentDidMount() {
-    const { line } = this.props;
-    const tokens = line.split(' ');
-
-    getTokenizedLine(tokens, contexts).then((tokenizedLine) => {
-      this.setState({
-        tokenizedLine
-      });
-    });
+    // const { line } = this.props;
+    // const tokens = line.split(' ');
   }
 
   render() {
     return (
-      <span>{this.state.tokenizedLine}</span>
+      <span></span>
     );
   }
 }

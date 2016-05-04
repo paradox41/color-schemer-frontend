@@ -46,11 +46,11 @@ module.exports = {
       test: /\.json$/,
       loader: 'json'
     }, {
-      test: /\.(sublime-syntax|yaml|yml)$/,
-      loaders: ['json', 'yaml']
-    }, {
       test: /\.txt$/,
       loader: 'raw'
+    }, {
+      test: /\.cson$/,
+      loader: 'cson'
     }]
   },
   plugins: [
