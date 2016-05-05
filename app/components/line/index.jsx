@@ -1,38 +1,21 @@
 import React from 'react';
 
-import { getTokenizedLine, getContexts } from './helpers.jsx';
-
-import syntax from './JavaScript.sublime-syntax';
-
-const contexts = getContexts(syntax);
-
 export default class Line extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      tokenizedLine: (<span></span>)
-    };
-  }
-
-  componentDidMount() {
-    const { line } = this.props;
-    const tokens = line.split(' ');
-
-    getTokenizedLine(tokens, contexts).then((tokenizedLine) => {
-      this.setState({
-        tokenizedLine
-      });
-    });
   }
 
   render() {
+    const { line } = this.props;
+
     return (
-      <span>{this.state.tokenizedLine}</span>
+      <span>{line.map(function(token, index) {
+        return (<span key={index} className={token.scopes.join(' ')}>{token.value}</span>);
+      })}</span>
     );
   }
 }
 
 Line.propTypes = {
-  line: React.PropTypes.string.isRequired
+  line: React.PropTypes.array.isRequired
 };

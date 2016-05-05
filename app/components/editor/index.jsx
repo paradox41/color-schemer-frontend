@@ -1,22 +1,31 @@
 import React from 'react';
+import { GrammarRegistry } from '@pnidem/first-mate';
 
 import Line from '../line/index.jsx';
 
 import sample from './JavaScript.sample.txt';
+import jsGrammar from './javascript.json';
 
 import './editor.css';
+
+const registry = new GrammarRegistry();
+
+const grammar = registry.createGrammar('javascript', jsGrammar);
+registry.addGrammar(grammar);
+
+const tokenized = grammar.tokenizeLines(sample);
 
 export default class Editor extends React.Component {
   constructor() {
     super();
 
     this.state = {
-      code: sample.split('\n')
+      code: tokenized
     };
   }
 
   render() {
-    var { code } = this.state;
+    const { code } = this.state;
 
     return (
       <div>

@@ -16,7 +16,7 @@
   },
   "homepage": "https://github.com/paradox41/color-schemer-frontend",
   "dependencies": {
-    "bluebird": "^3.3.5",
+    "@pnidem/first-mate": "^5.2.0",
     "immutable": "^3.8.1",
     "isomorphic-fetch": "^2.2.1",
     "lodash": "^4.11.1",
@@ -46,7 +46,6 @@
     "style-loader": "^0.13.1",
     "webpack": "^1.13.0",
     "webpack-dev-middleware": "^1.6.1",
-    "webpack-hot-middleware": "^2.10.0",
-    "yaml-loader": "^0.1.0"
+    "webpack-hot-middleware": "^2.10.0"
   }
 }

@@ -8,7 +8,7 @@
   "settings": {
     "import/ignore": [
       "node_modules/",
-      ".(scss|less|css|sublime-syntax|txt)$"
+      ".(scss|less|css|txt|json)$"
     ]
   },
   "extends": [
