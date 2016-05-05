@@ -10,7 +10,7 @@
     "type": "git",
     "url": "https://github.com/paradox41/color-schemer-frontend.git"
   },
-  "license": "MIT",
+  "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/paradox41/color-schemer-frontend/issues"
   },
