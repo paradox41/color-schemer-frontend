@@ -1,5 +1,4 @@
 .gutter {
-  background: #212121;
   width: 30px;
   display: inline-block;
   text-align: right;
@@ -7,6 +6,6 @@
   margin-right: 10px;
 }
 
-.line-number {
-  color: #FEFEFE;
+atom-text-editor {
+  display: block;
 }

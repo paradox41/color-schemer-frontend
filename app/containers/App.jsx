@@ -7,13 +7,11 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import { spacing, typography } from 'material-ui/styles';
 import { teal600 } from 'material-ui/styles/colors';
-import Create from 'material-ui/svg-icons/content/create';
 import Code from 'material-ui/svg-icons/action/code';
 
 import Drawer from 'material-ui/Drawer';
 import Menu from 'material-ui/Menu';
 import MenuItem from 'material-ui/MenuItem';
-import Divider from 'material-ui/Divider';
 
 import './app.css';
 
@@ -41,7 +39,7 @@ export default class App extends React.Component {
         marginBottom: 8
       },
       container: {
-        padding: spacing.desktopGutter,
+        // padding: spacing.desktopGutter,
         marginLeft: `${darkMuiTheme.navDrawer.width}px`
       }
     };
@@ -57,16 +55,7 @@ export default class App extends React.Component {
             </div>
             <Menu>
               <MenuItem
-                containerElement={<Link to="/themes/create"/>}
-                primaryText="Create"
-                leftIcon={<Create />} />
-              {/*<MenuItem
-                containerElement={<Link to="/themes"/>}
-                primaryText="View"
-                leftIcon={<ViewList/>} /> */}
-              <Divider/>
-              <MenuItem
-                containerElement={<Link to="/editor"/>}
+                containerElement={<Link to="/editor" activeClassName="menu-item--active" />}
                 primaryText="Editor"
                 leftIcon={<Code/>} />
             </Menu>

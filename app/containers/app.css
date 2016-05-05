@@ -6,3 +6,7 @@ a {
   color: white;
   text-decoration: none;
 }
+
+.menu-item--active {
+  background-color: rgba(255, 255, 255, 0.09);
+}

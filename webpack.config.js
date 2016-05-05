@@ -40,8 +40,8 @@ module.exports = {
       loaders: ['babel'],
       exclude: /node_modules/
     }, {
-      test: /\.css$/,
-      loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
+      test: /\.(css|less)$/,
+      loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader!less-loader')
     }, {
       test: /\.json$/,
       loader: 'json'
@@ -58,5 +58,14 @@ module.exports = {
       inject: 'body',
       template: 'index.html'
     })
-  ]
+  ],
+  postcss: function() {
+    return [
+      require('autoprefixer'),
+      require('postcss-bem'),
+      require('postcss-css-variables'),
+      require('postcss-bem-linter')('bem'),
+      require('postcss-reporter')()
+    ];
+  }
 };

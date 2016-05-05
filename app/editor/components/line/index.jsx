@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Token from '../token/index.jsx';
+
 export default class Line extends React.Component {
   constructor(props) {
     super(props);
@@ -10,7 +12,7 @@ export default class Line extends React.Component {
 
     return (
       <span>{line.map(function(token, index) {
-        return (<span key={index} className={token.scopes.join(' ')}>{token.value}</span>);
+        return (<Token key={index} token={token} />);
       })}</span>
     );
   }
