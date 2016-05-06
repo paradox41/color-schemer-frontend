@@ -10,7 +10,7 @@ module.exports = {
   devtool: '',
   context: `${__dirname}/app`,
   entry: {
-    index: './index.jsx',
+    index: './index.js',
     // being lazy right now
     vendor: Object.keys(pkg.dependencies)
   },
@@ -23,7 +23,6 @@ module.exports = {
     extensions: [
       '',
       '.js',
-      '.jsx',
       '.css',
       '.html',
       '.json'
@@ -31,12 +30,12 @@ module.exports = {
   },
   module: {
     preLoaders: [{
-      test: /\.jsx?$/,
+      test: /\.js$/,
       loader: 'eslint',
       exclude: /node_modules/
     }],
     loaders: [{
-      test: /\.jsx?$/,
+      test: /\.js$/,
       loaders: ['babel'],
       exclude: /node_modules/
     }, {

@@ -24,9 +24,15 @@
     "material-ui": "^0.15.0-beta.2",
     "normalize.css": "^4.1.1",
     "react": "^15.0.1",
+    "react-addons-pure-render-mixin": "^15.0.2",
     "react-dom": "^15.0.1",
+    "react-redux": "^4.4.5",
     "react-router": "^2.2.4",
-    "react-tap-event-plugin": "^1.0.0"
+    "react-tap-event-plugin": "^1.0.0",
+    "redux": "^3.5.2",
+    "redux-logger": "^2.6.1",
+    "redux-promise": "^0.5.3",
+    "redux-thunk": "^2.0.1"
   },
   "devDependencies": {
     "atom-material-syntax": "git+ssh://git@github.com/atom-material/atom-material-syntax.git",

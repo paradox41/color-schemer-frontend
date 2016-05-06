@@ -20,8 +20,8 @@ injectTapEventPlugin();
 const darkMuiTheme = getMuiTheme(darkBaseTheme);
 
 export default class App extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
     this.state = {
       open: true
@@ -50,9 +50,7 @@ export default class App extends React.Component {
       <MuiThemeProvider muiTheme={darkMuiTheme}>
         <div>
           <Drawer open={this.state.open}>
-            <div style={this.styles.logo}>
-              Color Schemer
-            </div>
+            <div style={this.styles.logo}>Color Schemer</div>
             <Menu>
               <MenuItem
                 containerElement={<Link to="/editor" activeClassName="menu-item--active" />}

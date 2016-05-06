@@ -4,6 +4,6 @@
 
 @component token {
   @modifier active {
-    border: 2px solid var(--color);
+    outline: 2px solid var(--color);
   }
 }

@@ -1,11 +1,11 @@
 import React from 'react';
 
-import Line from './components/line/index.jsx';
+import Line from './components/line';
+
+import tokenized from '../registry';
 
 import './editor.css';
 import 'atom-material-syntax/index.less';
-
-import tokenized from './registry';
 
 export default class Editor extends React.Component {
   constructor() {

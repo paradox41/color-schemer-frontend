@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Token from '../token/index.jsx';
+import Token from '../token';
 
 export default class Line extends React.Component {
   constructor(props) {
