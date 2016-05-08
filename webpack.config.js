@@ -40,13 +40,16 @@ module.exports = {
       exclude: /node_modules/
     }, {
       test: /\.(css|less)$/,
-      loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader!less-loader')
+      loader: ExtractTextPlugin.extract('style-loader', 'css-loader?camelCase!less-loader!postcss-loader')
     }, {
       test: /\.json$/,
       loader: 'json'
     }, {
       test: /\.txt$/,
       loader: 'raw'
+    }, {
+      test: /\.(yml|yaml)$/,
+      loader: 'json!yaml'
     }]
   },
   plugins: [
@@ -61,7 +64,13 @@ module.exports = {
   postcss: function() {
     return [
       require('autoprefixer'),
-      require('postcss-bem'),
+      require('postcss-bem')({
+        style: 'bem',
+        shortcuts: {
+          component: 'block',
+          descendent: 'element'
+        }
+      }),
       require('postcss-css-variables'),
       require('postcss-bem-linter')('bem'),
       require('postcss-reporter')()
