@@ -1,11 +1,11 @@
 import React from 'react';
 
 import Line from './components/line';
+import SchemeEditor from './components/scheme-editor';
 
 import tokenized from '../registry';
 
 import './editor.css';
-import 'atom-material-syntax/index.less';
 
 export default class Editor extends React.Component {
   constructor() {
@@ -20,16 +20,21 @@ export default class Editor extends React.Component {
     const { code } = this.state;
 
     return (
-      <atom-text-editor>
-        <code>{code.map(function(line, index) {
-          return (
-            <div key={index}>
-              <span className="gutter line-number">{index + 1}</span>
-              <Line line={line} />
-            </div>
-          );
-        })}</code>
-      </atom-text-editor>
+      <div className="editor">
+        <div className="editor__scheme">
+          <SchemeEditor></SchemeEditor>
+        </div>
+        <div className="editor__code">
+          <pre>{code.map(function(line, index) {
+            return (
+              <div key={index}>
+                <span className="gutter line-number">{index + 1}</span>
+                <Line line={line} />
+              </div>
+            );
+          })}</pre>
+        </div>
+      </div>
     );
   }
 }

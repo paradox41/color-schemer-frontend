@@ -44,7 +44,7 @@ class Navigation extends React.Component {
 
   render() {
     return (
-      <Drawer open={this.props.open} containerStyle={{zIndex: zIndex.navDrawer - 100}}>
+      <Drawer open={this.props.open} containerStyle={{zIndex: zIndex.appBar - 100}}>
         <div style={this.styles.logo}>Color Schemer</div>
         <Menu>
           <MenuItem

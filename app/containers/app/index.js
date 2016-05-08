@@ -3,7 +3,7 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
+import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 import { teal600 } from 'material-ui/styles/colors';
 
 import AppBar from 'material-ui/AppBar';
@@ -14,7 +14,7 @@ import './app.css';
 
 injectTapEventPlugin();
 
-const darkMuiTheme = getMuiTheme(darkBaseTheme);
+const lightMuiTheme = getMuiTheme(lightBaseTheme);
 
 export default class App extends React.Component {
   static propTypes = {
@@ -27,15 +27,6 @@ export default class App extends React.Component {
     this.state = {
       open: true
     };
-
-    this.styles = {
-      container: {
-        marginLeft: `${darkMuiTheme.navDrawer.width}px`
-      },
-      appBar: {
-        backgroundColor: teal600
-      }
-    };
   }
 
   toggleNavigation = () => {
@@ -45,12 +36,26 @@ export default class App extends React.Component {
   }
 
   render() {
+    const styles = {
+      container: {},
+      appBar: {
+        backgroundColor: teal600
+      }
+    };
+
+    if (this.state.open) {
+      styles.container.marginLeft = `${lightMuiTheme.navDrawer.width}px`;
+    }
+
     return (
-      <MuiThemeProvider muiTheme={darkMuiTheme}>
+      <MuiThemeProvider muiTheme={lightMuiTheme}>
         <div>
-          <AppBar style={this.styles.appBar} onLeftIconButtonTouchTap={this.toggleNavigation} />
+          <AppBar
+            style={styles.appBar}
+            onLeftIconButtonTouchTap={this.toggleNavigation}
+            title="Color Schemer" />
           <Navigation open={this.state.open} />
-          <div style={this.styles.container}>
+          <div style={styles.container}>
             {this.props.children}
           </div>
         </div>

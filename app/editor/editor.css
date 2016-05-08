@@ -6,6 +6,16 @@
   margin-right: 10px;
 }
 
-atom-text-editor {
-  display: block;
+@block editor {
+  display: flex;
+
+  @element code {
+    font-family: Monaco, monospace;
+    // flex: 2;
+    font-size: 0.9rem;
+  }
+
+  @element scheme {
+    // flex: 1;
+  }
 }

@@ -1,8 +1,11 @@
 import { combineReducers } from 'redux';
+import ColorSchemeConverter from 'color-scheme-parser';
 
-const INITIAL_STATE = {};
+import firewatch from 'firewatch-color-scheme/firewatch.yml';
 
-function scheme(state = INITIAL_STATE, action) {
+const INITIAL_SCHEME = new ColorSchemeConverter(firewatch).toJSON();
+
+function scheme(state = INITIAL_SCHEME, action) {
   switch (action.type) {
     case 'TOKEN_CLICKED':
       return action.payload;

@@ -1,9 +1,0 @@
-:root {
-  --color: red;
-}
-
-@component token {
-  @modifier active {
-    outline: 2px solid var(--color);
-  }
-}
