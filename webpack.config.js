@@ -10,8 +10,10 @@ module.exports = {
   devtool: '',
   context: `${__dirname}/app`,
   entry: {
-    index: './index.js',
-    // being lazy right now
+    index: [
+      'webpack-hot-middleware/client',
+      './index.js'
+    ],
     vendor: Object.keys(pkg.dependencies)
   },
   output: {
@@ -53,6 +55,7 @@ module.exports = {
     }]
   },
   plugins: [
+    new webpack.HotModuleReplacementPlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js'),
     new ExtractTextPlugin('[name].css'),
