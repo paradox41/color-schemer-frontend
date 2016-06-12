@@ -8,7 +8,7 @@ var pkg = require('./package.json');
 
 module.exports = {
   devtool: '',
-  context: `${__dirname}/app`,
+  context: path.join(__dirname, 'app'),
   entry: {
     index: [
       'webpack-hot-middleware/client',
