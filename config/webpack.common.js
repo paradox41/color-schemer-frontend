@@ -33,6 +33,9 @@ module.exports = {
     }, {
       test: /\.txt$/,
       loader: 'raw'
+    }, {
+      test: /\.(yml|yaml)$/,
+      loader: 'json!yaml'
     }]
   },
 

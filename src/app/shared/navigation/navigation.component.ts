@@ -13,8 +13,4 @@ export interface NavItem {
 })
 export class NavigationComponent {
   @Input() items: NavItem[];
-
-  constructor() {
-    console.log(this);
-  }
 }

@@ -1,7 +1,14 @@
-<pre>
-  <line
-    *ngFor="let line of tokenized; let idx = index"
-    [line]="line"
-    [lineNumber]="idx + 1">
-  </line>
-</pre>
+<div class="row">
+  <div class="col-md-3">
+    <palette [scheme]="scheme"></palette>
+  </div>
+  <div class="col-md-9">
+    <pre>
+      <line
+        *ngFor="let line of tokenized; let idx = index"
+        [line]="line"
+        [lineNumber]="idx + 1">
+      </line>
+    </pre>
+  </div>
+</div>
