@@ -16,7 +16,7 @@ const firewatch: any = require('firewatch-color-scheme/firewatch.yml');
 const scheme: any = new ColorSchemeConverter(firewatch).serialize();
 
 @Component({
-  selector: 'editor',
+  selector: 'cs-editor',
   template: require('./editor.component.html'),
   directives: [
     NgClass,

@@ -7,7 +7,7 @@ export interface NavItem {
 }
 
 @Component({
-  selector: 'navigation',
+  selector: 'cs-navigation',
   template: require('./navigation.component.html'),
   directives: [NgFor]
 })

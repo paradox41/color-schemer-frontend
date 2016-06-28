@@ -1,14 +1,14 @@
 <div class="row">
   <div class="col-md-3">
-    <palette [scheme]="scheme"></palette>
+    <cs-palette [scheme]="scheme"></cs-palette>
   </div>
   <div class="col-md-9">
     <pre>
-      <line
+      <cs-line
         *ngFor="let line of tokenized; let idx = index"
         [line]="line"
         [lineNumber]="idx + 1">
-      </line>
+      </cs-line>
     </pre>
   </div>
 </div>

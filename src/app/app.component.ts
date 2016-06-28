@@ -4,7 +4,7 @@ import { Route } from '@ngrx/router';
 import { NavigationComponent, NavItem } from './shared';
 
 @Component({
-  selector: 'app',
+  selector: 'cs-app',
   template: require('./app.component.html'),
   directives: [NavigationComponent]
 })

@@ -12,7 +12,7 @@ interface Line {
 }
 
 @Component({
-  selector: 'line',
+  selector: 'cs-line',
   template: require('./line.component.html'),
   directives: [NgFor]
 })

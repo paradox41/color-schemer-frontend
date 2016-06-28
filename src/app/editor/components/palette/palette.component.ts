@@ -3,7 +3,7 @@ import { NgFor } from '@angular/common';
 import { REACTIVE_FORM_DIRECTIVES } from '@angular/forms';
 
 @Component({
-  selector: 'palette',
+  selector: 'cs-palette',
   template: require('./palette.component.html'),
   directives: [
     REACTIVE_FORM_DIRECTIVES,
