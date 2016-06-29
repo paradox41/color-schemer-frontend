@@ -1,49 +1,60 @@
-<form>
-  <fieldset class="form-group">
-    <label for="schemeName">Name</label>
-    <input type="text" class="form-control" id="schemeName" name="schemeName" placeholder="Name" [(ngModel)]="scheme.name">
-  </fieldset>
-  <hr>
-  <fieldset class="form-group row">
-    <label for="background" class="col-sm-9 form-control-label">Background</label>
-    <div class="col-sm-3">
-      <input type="color" id="background" name="background" [value]="scheme.background">
-    </div>
-  </fieldset>
-  <fieldset class="form-group row">
-    <label for="caret" class="col-sm-9 form-control-label">Caret</label>
-    <div class="col-sm-3">
-      <input type="color" id="caret" name="caret" [value]="scheme.caret">
-    </div>
-  </fieldset>
-  <fieldset class="form-group row">
-    <label for="foreground" class="col-sm-9 form-control-label">Foreground</label>
-    <div class="col-sm-3">
-      <input type="color" id="foreground" name="foreground" [value]="scheme.foreground">
-    </div>
-  </fieldset>
-  <fieldset class="form-group row">
-    <label for="invisibles" class="col-sm-9 form-control-label">Invisibles</label>
-    <div class="col-sm-3">
-      <input type="color" id="invisibles" name="invisibles" [value]="scheme.invisibles">
-    </div>
-  </fieldset>
-  <fieldset class="form-group row">
-    <label for="lineHightlight" class="col-sm-9 form-control-label">Line Highlight</label>
-    <div class="col-sm-3">
-      <input type="color" id="lineHightlight" name="lineHightlight" [value]="scheme.lineHightlight">
-    </div>
-  </fieldset>
-  <fieldset class="form-group row">
-    <label for="selection" class="col-sm-9 form-control-label">Selected</label>
-    <div class="col-sm-3">
-      <input type="color" id="selection" name="selection" [value]="scheme.selection">
-    </div>
-  </fieldset>
-  <fieldset class="form-group row" *ngFor="let setting of scheme.settings">
-    <label [attr.for]="setting.scope" class="col-sm-9 form-control-label">{{ setting.scope }}</label>
-    <div class="col-sm-3">
-      <input type="color" [attr.id]="setting.name" [attr.name]="setting.name" [value]="setting.settings.foreground">
-    </div>
-  </fieldset>
-</form>
+<table class="table table-sm table--truncated">
+  <thead>
+    <tr>
+      <th>Scope Name</th>
+      <th class="text-xs-center">Foreground</th>
+      <th class="text-xs-center">Background</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Background</td>
+      <td class="text-xs-center">
+        <input type="color" id="background" name="background" [value]="scheme.background">
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Caret</td>
+      <td class="text-xs-center">
+        <input type="color" id="caret" name="caret" [value]="scheme.caret">
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Foreground</td>
+      <td class="text-xs-center">
+        <input type="color" id="foreground" name="foreground" [value]="scheme.foreground">
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Invisibles</td>
+      <td class="text-xs-center">
+        <input type="color" id="invisibles" name="invisibles" [value]="scheme.invisibles">
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Line Highlight</td>
+      <td class="text-xs-center">
+        <input type="color" id="lineHightlight" name="lineHightlight" [value]="scheme.lineHightlight">
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Selected</td>
+      <td class="text-xs-center">
+        <input type="color" id="selection" name="selection" [value]="scheme.selection">
+      </td>
+      <td></td>
+    </tr>
+    <tr *ngFor="let setting of scheme.settings">
+      <td>{{ setting.name }}</td>
+      <td class="text-xs-center">
+        <input type="color" [attr.id]="setting.name" [attr.name]="setting.name" [value]="setting.settings.foreground">
+      </td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>

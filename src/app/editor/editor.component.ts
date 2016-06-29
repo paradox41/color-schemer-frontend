@@ -5,8 +5,8 @@ import { Route } from '@ngrx/router';
 import tokenized from '../shared/registry';
 
 import {
-  LineComponent,
-  PaletteComponent
+  PaletteComponent,
+  CodeSampleComponent
 } from './components';
 
 import './editor.component.scss';
@@ -21,8 +21,8 @@ const scheme: any = new ColorSchemeConverter(firewatch).serialize();
   directives: [
     NgClass,
     NgFor,
-    LineComponent,
-    PaletteComponent
+    PaletteComponent,
+    CodeSampleComponent
   ]
 })
 export class EditorComponent {

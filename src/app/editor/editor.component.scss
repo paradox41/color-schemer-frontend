@@ -9,3 +9,9 @@
 pre span {
   white-space: pre;
 }
+
+.make-scrollable {
+  display: flex;
+  max-height: 100vh;
+  overflow-y: scroll;
+}

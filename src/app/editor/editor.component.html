@@ -1,14 +1,8 @@
 <div class="row">
-  <div class="col-md-3">
-    <cs-palette [scheme]="scheme"></cs-palette>
+  <div class="col-md-5">
+    <cs-palette class="make-scrollable" [scheme]="scheme"></cs-palette>
   </div>
-  <div class="col-md-9">
-    <pre>
-      <cs-line
-        *ngFor="let line of tokenized; let idx = index"
-        [line]="line"
-        [lineNumber]="idx + 1">
-      </cs-line>
-    </pre>
+  <div class="col-md-7">
+    <cs-code-sample class="make-scrollable" [tokenized]="tokenized"></cs-code-sample>
   </div>
 </div>

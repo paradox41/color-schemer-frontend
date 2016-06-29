@@ -1,0 +1,13 @@
+@mixin ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.table--truncated {
+  th,
+  td {
+    @include ellipsis();
+    max-width: 130px;
+  }
+}
