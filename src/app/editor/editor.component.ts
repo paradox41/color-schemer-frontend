@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgClass, NgFor } from '@angular/common';
 import { Route } from '@ngrx/router';
+import { Grammar } from '@pnidem/first-mate';
 
-import tokenized from '../shared/registry';
+import { RegistryService } from '../shared/registry';
 
 import {
   PaletteComponent,
@@ -23,19 +24,33 @@ const scheme: any = new ColorSchemeConverter(firewatch).serialize();
     NgFor,
     PaletteComponent,
     CodeSampleComponent
-  ]
+  ],
+  providers: [RegistryService]
 })
-export class EditorComponent {
+export class EditorComponent implements OnInit {
   tokenized: any;
   scheme: any;
 
-  constructor() {
-    this.tokenized = tokenized;
+  constructor(private registryService: RegistryService) {
     this.scheme = scheme;
+    this.registryService = registryService;
+  }
+
+  ngOnInit(): void {
+    const syntax: any = this.registryService.getSyntax('javascript');
+    const grammar: Grammar = this.registryService.createGrammar('javascript', syntax);
+
+    this.registryService.addGrammar(grammar);
+
+    this.tokenized = grammar.tokenizeLines(this.registryService.getSample('javascript'));
   }
 }
 
 export const route: Route = {
   path: '/editor',
-  component: EditorComponent
+  loadComponent: (): any => new Promise(resolve => {
+    (<any>require).ensure([], require => {
+      resolve(EditorComponent);
+    });
+  })
 };
