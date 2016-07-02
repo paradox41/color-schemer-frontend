@@ -1,7 +1,6 @@
-<pre>
-  <cs-line
-    *ngFor="let line of tokenized; let idx = index"
-    [line]="line"
-    [lineNumber]="idx + 1">
-  </cs-line>
+<pre [ngStyle]="styles">
+  <div style="display: flex;" *ngFor="let line of tokenized; let idx = index">
+    <span class="gutter" [ngStyle]="gutterStyle">{{ idx + 1 }}</span>
+    <span *ngFor="let token of line" class="{{ getScopes(token.scopes) }}">{{ token.value }}</span>
+  </div>
 </pre>

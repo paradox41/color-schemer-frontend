@@ -17,7 +17,7 @@ const samples: Samples = {
 };
 
 const syntaxes: Syntaxes = {
-  javascript: require('./syntaxes/javascript.json')
+  javascript: require('language-javascript/grammars/javascript.cson')
 };
 
 @Injectable()

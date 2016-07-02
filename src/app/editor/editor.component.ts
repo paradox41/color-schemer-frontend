@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { NgClass, NgFor } from '@angular/common';
+import {
+  NgClass,
+  NgFor,
+  NgStyle
+} from '@angular/common';
 import { Route } from '@ngrx/router';
 import { Grammar } from '@pnidem/first-mate';
 
@@ -12,9 +16,8 @@ import {
 
 import './editor.component.scss';
 
-const ColorSchemeConverter: any = require('color-scheme-parser');
-const firewatch: any = require('firewatch-color-scheme/firewatch.yml');
-const scheme: any = new ColorSchemeConverter(firewatch).serialize();
+const theme: string = require('material-theme/schemes/Material-Theme-Darker.tmTheme');
+const plist: any = require('plist');
 
 @Component({
   selector: 'cs-editor',
@@ -22,6 +25,7 @@ const scheme: any = new ColorSchemeConverter(firewatch).serialize();
   directives: [
     NgClass,
     NgFor,
+    NgStyle,
     PaletteComponent,
     CodeSampleComponent
   ],
@@ -32,7 +36,6 @@ export class EditorComponent implements OnInit {
   scheme: any;
 
   constructor(private registryService: RegistryService) {
-    this.scheme = scheme;
     this.registryService = registryService;
   }
 
@@ -43,6 +46,8 @@ export class EditorComponent implements OnInit {
     this.registryService.addGrammar(grammar);
 
     this.tokenized = grammar.tokenizeLines(this.registryService.getSample('javascript'));
+
+    this.scheme = plist.parse(theme);
   }
 }
 

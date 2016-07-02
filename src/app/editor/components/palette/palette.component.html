@@ -4,56 +4,24 @@
       <th>Scope Name</th>
       <th class="text-xs-center">Foreground</th>
       <th class="text-xs-center">Background</th>
+      <th class="text-xs-center">Styles</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>Background</td>
+    <tr *ngFor="let setting of generalSettingsKeys">
+      <td>{{ setting }}</td>
       <td class="text-xs-center">
-        <input type="color" id="background" name="background" [value]="scheme.background">
+        <input type="color" [attr.id]="setting" [attr.name]="setting" [(ngModel)]="generalSettings[setting]">
       </td>
       <td></td>
-    </tr>
-    <tr>
-      <td>Caret</td>
-      <td class="text-xs-center">
-        <input type="color" id="caret" name="caret" [value]="scheme.caret">
-      </td>
       <td></td>
     </tr>
-    <tr>
-      <td>Foreground</td>
-      <td class="text-xs-center">
-        <input type="color" id="foreground" name="foreground" [value]="scheme.foreground">
-      </td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>Invisibles</td>
-      <td class="text-xs-center">
-        <input type="color" id="invisibles" name="invisibles" [value]="scheme.invisibles">
-      </td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>Line Highlight</td>
-      <td class="text-xs-center">
-        <input type="color" id="lineHightlight" name="lineHightlight" [value]="scheme.lineHightlight">
-      </td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>Selected</td>
-      <td class="text-xs-center">
-        <input type="color" id="selection" name="selection" [value]="scheme.selection">
-      </td>
-      <td></td>
-    </tr>
-    <tr *ngFor="let setting of scheme.settings">
+    <tr *ngFor="let setting of settings">
       <td>{{ setting.name }}</td>
       <td class="text-xs-center">
-        <input type="color" [attr.id]="setting.name" [attr.name]="setting.name" [value]="setting.settings.foreground">
+        <input type="color" [attr.id]="setting.name" [attr.name]="setting.name" [(ngModel)]="setting.settings.foreground">
       </td>
+      <td class="text-xs-center"></td>
       <td></td>
     </tr>
   </tbody>

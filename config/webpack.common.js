@@ -14,7 +14,15 @@ module.exports = {
   },
 
   resolve: {
-    extensions: ['', '.js', '.ts', '.scss']
+    extensions: [
+      '',
+      '.js',
+      '.ts',
+      '.scss',
+      '.json',
+      '.cson',
+      '.tmTheme'
+    ]
   },
 
   module: {
@@ -35,11 +43,14 @@ module.exports = {
       test: /\.scss$/,
       loader: ExtractTextPlugin.extract('style-loader', 'css?sourceMap!sass?sourceMap')
     }, {
-      test: /\.txt$/,
+      test: /\.(txt|tmTheme$)$/,
       loader: 'raw'
     }, {
       test: /\.(yml|yaml)$/,
       loader: 'json!yaml'
+    }, {
+      test: /\.cson$/,
+      loader: 'cson'
     }]
   },
 
@@ -51,5 +62,9 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: 'src/index.html'
     })
-  ]
+  ],
+
+  node: {
+    fs: 'empty'
+  }
 };
