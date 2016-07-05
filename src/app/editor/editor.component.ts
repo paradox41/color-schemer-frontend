@@ -5,9 +5,12 @@ import {
   NgStyle
 } from '@angular/common';
 import { Route } from '@ngrx/router';
-import { Grammar } from '@pnidem/first-mate';
 
-import { RegistryService } from '../shared/registry';
+import {
+  Grammar,
+  GrammarRegistryService,
+  ThemeService
+} from '../shared';
 
 import {
   PaletteComponent,
@@ -15,9 +18,6 @@ import {
 } from './components';
 
 import './editor.component.scss';
-
-const theme: string = require('material-theme/schemes/Material-Theme-Darker.tmTheme');
-const plist: any = require('plist');
 
 @Component({
   selector: 'cs-editor',
@@ -29,14 +29,21 @@ const plist: any = require('plist');
     PaletteComponent,
     CodeSampleComponent
   ],
-  providers: [RegistryService]
+  providers: [
+    GrammarRegistryService,
+    ThemeService
+  ]
 })
 export class EditorComponent implements OnInit {
   tokenized: any;
-  scheme: any;
+  theme: any;
 
-  constructor(private registryService: RegistryService) {
+  constructor(
+    private registryService: GrammarRegistryService,
+    private themeService: ThemeService
+  ) {
     this.registryService = registryService;
+    this.themeService = themeService;
   }
 
   ngOnInit(): void {
@@ -47,7 +54,9 @@ export class EditorComponent implements OnInit {
 
     this.tokenized = grammar.tokenizeLines(this.registryService.getSample('javascript'));
 
-    this.scheme = plist.parse(theme);
+    this.themeService.setTheme('material-theme-darker');
+
+    this.theme = this.themeService.getTheme();
   }
 }
 

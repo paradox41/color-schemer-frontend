@@ -16,12 +16,14 @@
       <td></td>
       <td></td>
     </tr>
-    <tr *ngFor="let setting of settings">
+    <tr *ngFor="let setting of settings; let idx = index">
       <td>{{ setting.name }}</td>
       <td class="text-xs-center">
         <input type="color" [attr.id]="setting.name" [attr.name]="setting.name" [(ngModel)]="setting.settings.foreground">
       </td>
-      <td class="text-xs-center"></td>
+      <td class="text-xs-center">
+        <input type="color" [attr.id]="setting.name + idx" [attr.name]="setting.name + idx" [(ngModel)]="setting.settings.background">
+      </td>
       <td></td>
     </tr>
   </tbody>

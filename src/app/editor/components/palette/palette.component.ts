@@ -2,16 +2,12 @@ import * as _ from 'lodash';
 import {
   Component,
   Input,
-  OnInit,
-  OnChanges,
-  SimpleChanges
+  OnInit
 } from '@angular/core';
 import { NgFor } from '@angular/common';
 import { REACTIVE_FORM_DIRECTIVES } from '@angular/forms';
 
 import './palette.component.scss';
-
-const keyBy: any = _.memoize(_.keyBy);
 
 interface SettingsByScope {
   [scope: string]: {
@@ -32,8 +28,8 @@ interface SettingsByScope {
     NgFor
   ]
 })
-export class PaletteComponent implements OnInit, OnChanges {
-  @Input() scheme: any;
+export class PaletteComponent implements OnInit {
+  @Input() theme: any;
 
   ngOnInit(): void {
     const sheet: HTMLElement = document.createElement('style');
@@ -42,46 +38,39 @@ export class PaletteComponent implements OnInit, OnChanges {
     document.head.appendChild(sheet);
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes);
-  }
-
-  get settingsByScope(): any {
-    return keyBy(_.tail(this.scheme.settings), 'scope');
-  }
-
   get generalSettings(): any {
-    return this.scheme.settings[0].settings;
+    return this.theme.settings[0].settings;
   }
 
   get generalSettingsKeys(): string[] {
-    return _.keys(this.scheme.settings[0].settings).sort();
+    return _.keys(this.generalSettings).sort();
   }
 
   get settings(): Object[] {
-    return _.tail(this.scheme.settings);
+    return _.tail(this.theme.settings);
   }
 
   get stylesheet(): string {
-    const settingsByScope: SettingsByScope = this.settingsByScope;
+    return _.map(this.settings, this._generateRuleFromSetting).join('\n');
+  }
 
-    return _.map(settingsByScope, ({ scope, settings }) => {
-      let fontStyle: string = '';
+  _generateRuleFromSetting(setting: Object): string {
+    let fontStyle: string = '';
+    let { settings, scope }: any = setting;
 
-      if (settings.fontStyle) {
-        const boldIndex: number = settings.fontStyle.indexOf('bold');
-        const italicIndex: number = settings.fontStyle.indexOf('italic');
+    if (settings.fontStyle) {
+      let boldIndex: number = settings.fontStyle.indexOf('bold');
+      let italicIndex: number = settings.fontStyle.indexOf('italic');
 
-        if (boldIndex > -1) {
-          fontStyle.concat(`font-weight: ${settings.fontStyle[boldIndex]};`);
-        }
-
-        if (italicIndex > -1) {
-          fontStyle.concat(`font-style: ${settings.fontStyle[italicIndex]};`);
-        }
+      if (boldIndex > -1) {
+        fontStyle.concat(`font-weight: ${settings.fontStyle[boldIndex]};`);
       }
 
-      return `.${scope} { color: ${settings.foreground}; ${fontStyle} }`;
-    }).join('\n');
+      if (italicIndex > -1) {
+        fontStyle.concat(`font-style: ${settings.fontStyle[italicIndex]};`);
+      }
+    }
+
+    return `.${scope} { color: ${settings.foreground}; ${fontStyle} }`;
   }
 }
