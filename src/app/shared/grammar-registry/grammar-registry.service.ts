@@ -2,8 +2,8 @@
 import { Injectable } from '@angular/core';
 
 import {
-  GrammarRegistry,
-  Grammar
+  Grammar,
+  GrammarRegistry
 } from '@pnidem/first-mate';
 
 import {
@@ -21,7 +21,7 @@ const syntaxes: Syntaxes = {
 };
 
 @Injectable()
-export class RegistryService {
+export class GrammarRegistryService {
   private _registry: GrammarRegistry;
 
   getSample(language: Languages): string {
@@ -47,4 +47,8 @@ export class RegistryService {
 
     return this._registry;
   }
+}
+
+export {
+  Grammar
 }
