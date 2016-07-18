@@ -4,8 +4,7 @@
   "description": "Frontend for Color Schemer",
   "scripts": {
     "start": "webpack-dev-server --inline --progress --port 8080",
-    "lint": "eslint app/",
-    "postinstall": "typings install"
+    "lint": "tslint src/**/*.ts"
   },
   "repository": {
     "type": "git",
@@ -28,18 +27,17 @@
     "@ngrx/core": "^1.0.1",
     "@ngrx/router": "^1.0.0-beta.1",
     "@pnidem/first-mate": "^5.2.0",
-    "@types/core-js": "^0.9.23-alpha",
-    "@types/event-kit": "^1.2.23-alpha",
-    "@types/lodash": "^4.0.22-alpha",
-    "@types/node": "^4.0.23-alpha",
+    "@types/core-js": "^0.9.28",
+    "@types/first-mate": "^4.1.27",
+    "@types/lodash": "0.0.27",
+    "@types/node": "^4.0.29",
+    "@types/tinycolor": "^1.1.26",
     "bootstrap": "^4.0.0-alpha.2",
     "color-scheme-parser": "^4.0.0",
     "core-js": "^2.4.0",
-    "first-mate": "^5.1.1",
     "language-javascript": "git+ssh://git@github.com/atom/language-javascript.git",
     "lodash": "^4.11.1",
     "material-theme": "^3.0.0",
-    "normalize.css": "^4.1.1",
     "plist": "^1.2.0",
     "reflect-metadata": "0.1.2",
     "rxjs": "5.0.0-beta.6",
@@ -47,7 +45,7 @@
     "zone.js": "0.6.12"
   },
   "devDependencies": {
-    "codelyzer": "0.0.23",
+    "codelyzer": "^0.0.25",
     "cson-loader": "^0.1.0",
     "css-loader": "^0.23.1",
     "extract-text-webpack-plugin": "^1.0.1",
@@ -65,15 +63,14 @@
     "rimraf": "^2.5.2",
     "sass-loader": "^3.2.1",
     "style-loader": "^0.13.1",
-    "ts-loader": "^0.8.1",
-    "tslint": "^3.11.0",
+    "ts-loader": "^0.8.2",
+    "tslint": "^3.13.0",
     "tslint-loader": "^2.1.5",
-    "typescript": "^1.8.10",
-    "typings": "^1.0.4",
-    "webpack": "^1.13.0",
+    "typescript": "^2.0.0",
+    "webpack": "^1.13.1",
     "webpack-dev-middleware": "^1.6.1",
     "webpack-dev-server": "^1.14.1",
-    "webpack-hot-middleware": "^2.10.0",
+    "webpack-hot-middleware": "^2.12.1",
     "webpack-merge": "^0.14.0",
     "yaml-loader": "^0.2.0"
   }
