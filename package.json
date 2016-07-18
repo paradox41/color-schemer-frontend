@@ -24,6 +24,7 @@
     "@angular/http": "2.0.0-rc.4",
     "@angular/platform-browser": "2.0.0-rc.4",
     "@angular/platform-browser-dynamic": "2.0.0-rc.4",
+    "@ng-bootstrap/ng-bootstrap": "^1.0.0-alpha.0",
     "@ngrx/core": "^1.0.1",
     "@ngrx/router": "^1.0.0-beta.1",
     "@pnidem/first-mate": "^5.2.0",

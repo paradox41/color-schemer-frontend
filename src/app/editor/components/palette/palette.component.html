@@ -1,30 +1,70 @@
-<table class="table table-sm table--truncated">
-  <thead>
-    <tr>
-      <th>Scope Name</th>
-      <th class="text-xs-center">Foreground</th>
-      <th class="text-xs-center">Background</th>
-      <th class="text-xs-center">Styles</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let setting of generalSettingsKeys">
-      <td>{{ setting }}</td>
-      <td class="text-xs-center">
-        <input type="color" [attr.id]="setting" [attr.name]="setting" [(ngModel)]="generalSettings[setting]">
-      </td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr *ngFor="let setting of settings; let idx = index">
-      <td>{{ setting.name }}</td>
-      <td class="text-xs-center">
-        <input type="color" [attr.id]="setting.name" [attr.name]="setting.name" [(ngModel)]="setting.settings.foreground">
-      </td>
-      <td class="text-xs-center">
-        <input type="color" [attr.id]="setting.name + idx" [attr.name]="setting.name + idx" [(ngModel)]="setting.settings.background">
-      </td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
+<ngb-tabset style="width: 100%">
+  <ngb-tab title="Scopes">
+    <template ngbTabContent>
+      <table class="table table-striped table-bordered table--truncated">
+        <thead class="thead-default">
+          <tr>
+            <th>Scope Name</th>
+            <th class="text-xs-center">Foreground</th>
+            <th class="text-xs-center">Background</th>
+            <th class="text-xs-center">Bold</th>
+            <th class="text-xs-center">Italic</th>
+            <th class="text-xs-center">Underline</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let setting of settings; let idx = index">
+            <td>{{ setting.name }}</td>
+            <td class="text-xs-center">
+              <input type="color" [attr.id]="setting.name" [attr.name]="setting.name" [(ngModel)]="setting.settings.foreground">
+            </td>
+            <td class="text-xs-center">
+              <input type="color" [attr.id]="setting.name + idx" [attr.name]="setting.name + idx" [(ngModel)]="setting.settings.background">
+            </td>
+            <td class="text-xs-center">
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox">
+                </label>
+              </div>
+            </td>
+            <td class="text-xs-center">
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox">
+                </label>
+              </div>
+            </td>
+            <td class="text-xs-center">
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox">
+                </label>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </template>
+  </ngb-tab>
+  <ngb-tab title="General">
+    <template ngbTabContent>
+      <table class="table table-striped table-bordered">
+        <thead class="thead-default">
+          <tr>
+            <th>Scope Name</th>
+            <th class="text-xs-center">Color</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let setting of generalSettingsKeys">
+            <td>{{ setting }}</td>
+            <td class="text-xs-center">
+              <input type="color" [attr.id]="setting" [attr.name]="setting" [(ngModel)]="generalSettings[setting]">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </template>
+  </ngb-tab>
+</ngb-tabset>

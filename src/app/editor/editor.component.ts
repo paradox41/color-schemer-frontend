@@ -63,7 +63,7 @@ export class EditorComponent implements OnInit {
 export const route: Route = {
   path: '/editor',
   loadComponent: (): any => new Promise(resolve => {
-    (<any>require).ensure([], require => {
+    (<any>require).ensure([], () => {
       resolve(EditorComponent);
     });
   })

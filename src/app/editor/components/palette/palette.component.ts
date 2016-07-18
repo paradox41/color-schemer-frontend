@@ -6,26 +6,28 @@ import {
 } from '@angular/core';
 import { NgFor } from '@angular/common';
 import { REACTIVE_FORM_DIRECTIVES } from '@angular/forms';
+import { NGB_DIRECTIVES } from '@ng-bootstrap/ng-bootstrap';
 
 import './palette.component.scss';
 
-interface SettingsByScope {
-  [scope: string]: {
-    name: string;
-    scope: string;
-    settings: {
-      foreground: string;
-      fontStyle: string[];
-    };
-  };
-}
+// interface SettingsByScope {
+//   [scope: string]: {
+//     name: string;
+//     scope: string;
+//     settings: {
+//       foreground: string;
+//       fontStyle: string[];
+//     };
+//   };
+// }
 
 @Component({
   selector: 'cs-palette',
   template: require('./palette.component.html'),
   directives: [
     REACTIVE_FORM_DIRECTIVES,
-    NgFor
+    NgFor,
+    NGB_DIRECTIVES
   ]
 })
 export class PaletteComponent implements OnInit {
@@ -39,7 +41,7 @@ export class PaletteComponent implements OnInit {
   }
 
   get generalSettings(): any {
-    return this.theme.settings[0].settings;
+    return _.head(this.theme.settings)['settings'];
   }
 
   get generalSettingsKeys(): string[] {
