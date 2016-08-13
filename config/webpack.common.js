@@ -7,10 +7,12 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var helpers = require('./helpers');
 
 module.exports = {
+  context: helpers.root('src'),
+
   entry: {
-    polyfills: './src/polyfills.ts',
-    vendor: './src/vendor.ts',
-    app: './src/main.ts'
+    polyfills: './polyfills.ts',
+    vendor: './vendor.ts',
+    app: './main.ts'
   },
 
   resolve: {
@@ -28,11 +30,13 @@ module.exports = {
   module: {
     preLoaders: [{
       test: /\.ts$/,
-      loader: 'tslint'
+      loader: 'tslint',
+      exclude: /node_modules/
     }],
     loaders: [{
       test: /\.ts$/,
-      loader: 'ts'
+      loader: 'ts',
+      exclude: /node_modules/
     }, {
       test: /\.html$/,
       loader: 'html'
@@ -41,7 +45,8 @@ module.exports = {
       loader: 'json'
     }, {
       test: /\.scss$/,
-      loader: ExtractTextPlugin.extract('style-loader', 'css?sourceMap!sass?sourceMap')
+      loader: ExtractTextPlugin.extract('style-loader', 'css?sourceMap!sass?sourceMap'),
+      exclude: /node_modules/
     }, {
       test: /\.(txt|tmTheme$)$/,
       loader: 'raw'
@@ -60,7 +65,7 @@ module.exports = {
     }),
 
     new HtmlWebpackPlugin({
-      template: 'src/index.html'
+      template: './index.html'
     })
   ],
 
