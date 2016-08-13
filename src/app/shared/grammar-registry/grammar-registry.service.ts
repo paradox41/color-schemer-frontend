@@ -1,4 +1,3 @@
-/// <reference path="./index.d.ts" />
 import { Injectable } from '@angular/core';
 
 import {

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Route } from '@ngrx/router';
+import { Route } from '@angular/router';
 
 import { NavigationComponent, NavItem } from './shared';
 
@@ -13,16 +13,13 @@ export class AppComponent {
 
   constructor() {
     this.navItems = [{
-      linkTo: '/editor',
+      linkTo: 'editor',
       name: 'Editor'
-    }, {
-      linkTo: '/gallery',
-      name: 'Gallery'
     }];
   }
 }
 
 export const route: Route = {
-  path: '/',
+  path: '',
   component: AppComponent
 };

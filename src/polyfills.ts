@@ -4,6 +4,7 @@ require('zone.js/dist/zone');
 
 if (process.env.ENV === 'production') {
   // Production
+  require('offline-plugin/runtime').install();
 } else {
   // Development
   Error['stackTraceLimit'] = Infinity;

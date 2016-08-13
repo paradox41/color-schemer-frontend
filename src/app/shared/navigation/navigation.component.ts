@@ -1,5 +1,11 @@
-import { Component, Input } from '@angular/core';
-import { NgFor } from '@angular/common';
+import {
+  Component,
+  Input
+} from '@angular/core';
+
+import {
+  NgFor
+} from '@angular/common';
 
 export interface NavItem {
   linkTo: string;

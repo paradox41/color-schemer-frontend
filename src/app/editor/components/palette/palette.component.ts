@@ -4,9 +4,14 @@ import {
   Input,
   OnInit
 } from '@angular/core';
-import { NgFor } from '@angular/common';
-import { REACTIVE_FORM_DIRECTIVES } from '@angular/forms';
-import { NGB_DIRECTIVES } from '@ng-bootstrap/ng-bootstrap';
+
+import {
+  NgFor
+} from '@angular/common';
+
+import {
+  REACTIVE_FORM_DIRECTIVES
+} from '@angular/forms';
 
 import './palette.component.scss';
 
@@ -26,8 +31,7 @@ import './palette.component.scss';
   template: require('./palette.component.html'),
   directives: [
     REACTIVE_FORM_DIRECTIVES,
-    NgFor,
-    NGB_DIRECTIVES
+    NgFor
   ]
 })
 export class PaletteComponent implements OnInit {

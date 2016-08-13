@@ -4,7 +4,7 @@ import {
   NgFor,
   NgStyle
 } from '@angular/common';
-import { Route } from '@ngrx/router';
+import { Route } from '@angular/router';
 
 import {
   Grammar,
@@ -61,10 +61,6 @@ export class EditorComponent implements OnInit {
 }
 
 export const route: Route = {
-  path: '/editor',
-  loadComponent: (): any => new Promise(resolve => {
-    (<any>require).ensure([], () => {
-      resolve(EditorComponent);
-    });
-  })
+  path: 'editor',
+  component: EditorComponent
 };

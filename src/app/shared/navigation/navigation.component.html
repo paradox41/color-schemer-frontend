@@ -1,8 +1,8 @@
 <nav class="navbar navbar-dark navbar-fixed-top bg-inverse">
-  <a class="navbar-brand" linkTo="/editor">Color Schemer</a>
+  <a class="navbar-brand" routerLink="/editor">Color Schemer</a>
   <ul class="nav navbar-nav">
     <li class="nav-item" *ngFor="let item of items">
-      <a class="nav-link" [linkTo]="item.linkTo" [linkActive]="'active'">{{ item.name }}</a>
+      <a class="nav-link" [routerLink]="item.linkTo" routerLinkActive="active">{{ item.name }}</a>
     </li>
   </ul>
 </nav>
