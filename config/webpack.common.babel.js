@@ -45,7 +45,13 @@ module.exports = {
       loader: 'json'
     }, {
       test: /\.scss$/,
-      loader: ExtractTextPlugin.extract('style-loader', 'css?sourceMap!sass?sourceMap'),
+      loader: ExtractTextPlugin.extract({
+        fallbackLoader: 'style-loader',
+        loader: [
+          'css-loader',
+          'sass-loader'
+        ]
+      }),
       exclude: /node_modules/
     }, {
       test: /\.(txt|tmTheme$)$/,
@@ -60,9 +66,14 @@ module.exports = {
   },
 
   plugins: [
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
       name: ['app', 'vendor', 'polyfills']
     }),
+    new webpack.EnvironmentPlugin([
+      'NODE_ENV'
+    ]),
 
     new HtmlWebpackPlugin({
       template: './index.html'

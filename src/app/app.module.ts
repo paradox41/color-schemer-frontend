@@ -28,7 +28,8 @@ import {
   AppComponent
 } from './app.component';
 
-if (process.env.ENV === 'production') {
+if (process.env.NODE_ENV === 'production') {
+  console.info('Production Mode');
   enableProdMode();
 }
 

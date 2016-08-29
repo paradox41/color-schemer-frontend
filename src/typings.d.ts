@@ -9,10 +9,10 @@ declare var module: {
 declare var require: any;
 declare var process: any;
 
-declare module '@pnidem/first-mate' {
-  export = 'first-mate';
-};
+// declare module '@pnidem/first-mate' {
+//   export = 'first-mate';
+// };
 
-declare module 'tinycolor2' {
-  export = 'tinycolor';
-};
+// declare module 'tinycolor2' {
+//   export = 'tinycolor';
+// };
