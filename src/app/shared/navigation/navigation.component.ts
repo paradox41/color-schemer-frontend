@@ -3,10 +3,6 @@ import {
   Input
 } from '@angular/core';
 
-import {
-  NgFor
-} from '@angular/common';
-
 export interface NavItem {
   linkTo: string;
   name: string;
@@ -14,8 +10,7 @@ export interface NavItem {
 
 @Component({
   selector: 'cs-navigation',
-  template: require('./navigation.component.html'),
-  directives: [NgFor]
+  template: require('./navigation.component.html')
 })
 export class NavigationComponent {
   @Input() items: NavItem[];

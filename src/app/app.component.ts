@@ -1,12 +1,18 @@
-import { Component } from '@angular/core';
-import { Route } from '@angular/router';
+import {
+  Component
+} from '@angular/core';
 
-import { NavigationComponent, NavItem } from './shared';
+import {
+  Route
+} from '@angular/router';
+
+import {
+  NavItem
+} from './shared/navigation';
 
 @Component({
   selector: 'cs-app',
-  template: require('./app.component.html'),
-  directives: [NavigationComponent]
+  template: require('./app.component.html')
 })
 export class AppComponent {
   navItems: NavItem[];

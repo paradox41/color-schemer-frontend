@@ -8,10 +8,6 @@ import {
 } from '@angular/core';
 
 import {
-  RouterModule
-} from '@angular/router';
-
-import {
   FormsModule
 } from '@angular/forms';
 
@@ -20,16 +16,23 @@ import {
 } from '@ng-bootstrap/ng-bootstrap';
 
 import {
-  routes,
+  routing,
   appRoutingProviders
 } from './routes';
+
+import {
+  EditorModule
+} from './editor';
+
+import {
+  SharedModule
+} from './shared';
 
 import {
   AppComponent
 } from './app.component';
 
 if (process.env.NODE_ENV === 'production') {
-  console.info('Production Mode');
   enableProdMode();
 }
 
@@ -39,9 +42,11 @@ if (process.env.NODE_ENV === 'production') {
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes),
+    routing,
+    FormsModule,
     NgbModule,
-    FormsModule
+    EditorModule,
+    SharedModule
   ],
   providers: [
     appRoutingProviders

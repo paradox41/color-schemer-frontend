@@ -1,17 +1,10 @@
 import * as _ from 'lodash';
+
 import {
   Component,
   Input,
   OnInit
 } from '@angular/core';
-
-import {
-  NgFor
-} from '@angular/common';
-
-import {
-  REACTIVE_FORM_DIRECTIVES
-} from '@angular/forms';
 
 import './palette.component.scss';
 
@@ -28,11 +21,7 @@ import './palette.component.scss';
 
 @Component({
   selector: 'cs-palette',
-  template: require('./palette.component.html'),
-  directives: [
-    REACTIVE_FORM_DIRECTIVES,
-    NgFor
-  ]
+  template: require('./palette.component.html')
 })
 export class PaletteComponent implements OnInit {
   @Input() theme: any;

@@ -1,34 +1,22 @@
-import { Component, OnInit } from '@angular/core';
 import {
-  NgClass,
-  NgFor,
-  NgStyle
-} from '@angular/common';
-import { Route } from '@angular/router';
+  Component,
+  OnInit
+} from '@angular/core';
+
+import {
+  ThemeService
+} from '../shared/theme';
 
 import {
   Grammar,
   GrammarRegistryService,
-  ThemeService
-} from '../shared';
-
-import {
-  PaletteComponent,
-  CodeSampleComponent
-} from './components';
+} from '../shared/grammar-registry';
 
 import './editor.component.scss';
 
 @Component({
   selector: 'cs-editor',
   template: require('./editor.component.html'),
-  directives: [
-    NgClass,
-    NgFor,
-    NgStyle,
-    PaletteComponent,
-    CodeSampleComponent
-  ],
   providers: [
     GrammarRegistryService,
     ThemeService
@@ -59,8 +47,3 @@ export class EditorComponent implements OnInit {
     this.theme = this.themeService.getTheme();
   }
 }
-
-export const route: Route = {
-  path: 'editor',
-  component: EditorComponent
-};
