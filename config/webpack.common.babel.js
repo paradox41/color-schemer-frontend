@@ -17,7 +17,6 @@ module.exports = {
 
   resolve: {
     extensions: [
-      '',
       '.js',
       '.ts',
       '.scss',
@@ -28,12 +27,12 @@ module.exports = {
   },
 
   module: {
-    preLoaders: [{
+    rules: [{
+      enforce: 'pre',
       test: /\.ts$/,
       loader: 'tslint',
       exclude: /node_modules/
-    }],
-    loaders: [{
+    }, {
       test: /\.ts$/,
       loader: 'ts',
       exclude: /node_modules/
@@ -75,6 +74,7 @@ module.exports = {
     ]),
 
     new HtmlWebpackPlugin({
+      inject: 'body',
       template: './index.html'
     })
   ],

@@ -1,5 +1,4 @@
 var webpackMerge = require('webpack-merge');
-var WebpackDashboard = require('webpack-dashboard');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 var commonConfig = require('./webpack.common.babel');
